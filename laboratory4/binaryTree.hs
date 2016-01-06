@@ -24,24 +24,6 @@ remove el tree@(Node val left right)
        | el == val = deleteElement el (Node val left right)
        | el < val = Node val (remove el left) right
        | el > val = Node val left (remove el right)
-       
-vlr Empty = []
-vlr tree@(Node val left right) = [val] ++ vlr left ++ vlr right
-
-lvr Empty = []
-lvr tree@(Node val left right) = lvr left ++ [val] ++ lvr right
-
-lrv Empty = []
-lrv tree@(Node val left right) = lrv left ++ lrv right ++ [val]
-
-vrl Empty = []
-vrl tree@(Node val left right) = [val] ++ vrl right ++ vrl left
-
-rvl Empty = []
-rvl tree@(Node val left right) = rvl right ++ [val] ++ rvl left
-
-rlv Empty = []
-rlv tree@(Node val left right) = rlv right ++ rlv left ++ [val]
 
 fromList [] tree = tree
 fromList (first : rest) tree = fromList rest (insert first tree)
